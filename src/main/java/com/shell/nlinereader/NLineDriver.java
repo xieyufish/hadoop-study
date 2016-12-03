@@ -27,7 +27,7 @@ public class NLineDriver extends Configured implements Tool  {
 		Job job = Job.getInstance();
 		job.setJarByClass(this.getClass());
 		job.setJobName("NLineReader");
-		job.getConfiguration().setInt("mapreduce.input.lineinputformat.linespermap", 5);
+		job.getConfiguration().setInt(NLineInputFormat.LINES_PER_MAP, 5);
 		
 		job.setMapperClass(NLineMapper.class);
 		job.setReducerClass(NLineReducer.class);
